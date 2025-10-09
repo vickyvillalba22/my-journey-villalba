@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.bordeRojo{
+    border: 2px solid red;
+}
+
+.fuente{
+    font-family: "DM Sans", sans-serif;
+}
+
+/*sacar cosas*/
+.sinItem{
+    list-style: none;
+}
+.sinBorde{
+    border: none;
+}
+
+/*colores*/
+.blanco{
+    color: white;
+}
+.negro{
+    color: black;
+}
+.fondoOscuro{
+    background-color: #001F3E;
+}
+.oscuro{
+    color: #001F3E;
+}
+.claro{
+    color: #F0F5F4;
+}
+.verdeOscuro{
+    color: #007580;
+}
+.verdeMedio{
+    color: #2CC295;
+}
+.acento{
+    color: #00FF93;
+}
+.fondoTransparente{
+    background-color: rgba(255, 255, 255, 0);
+}   
+
+/*acomodar*/
+.df{
+    display: flex;
+}
+.columna{
+    flex-direction: column;
+}
+.centerX{
+    justify-content: center;
+}
+.centerY{
+    align-items: center;
+}
+.spaceb{
+    justify-content: space-between;
+}
+.spacea{
+    justify-content: space-around;
+}
+.spacee{
+    justify-content: space-evenly;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.objCover{
+    object-fit: cover;
+}
+.fitContent{
+    width: fit-content;
+}
+.posAb{
+    position: absolute;
+}
+.posRel{
+    position: relative;
+}
