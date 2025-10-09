@@ -1,39 +1,62 @@
 <script setup>
 
+import { ref } from 'vue'
 import ModalDestino from './components/agregar_destino.vue'
 
 const puntos = [
-    { name: "Inicio"}, 
-    { name: "Final"}
+
+    { name: "Inicio",
+      metodo: ()=>{}  
+    }, 
+
+    { name: "Agregar destino",
+      metodo: ()=>{
+        mostrarModal()
+      } 
+    },
+
+    { name: "Final",
+      metodo: ()=>{}
+    }
 ]
 
-function agregarDestino(){
-    ModalDestino.showModal()
+const modalDestinoRef = ref(null)
+
+function mostrarModal(){
+    modalDestinoRef.value.showModal()
 }
 
 </script>
 
 <template>
 
-<div class="w100 posRel">
+<div id="timeline" class="w100 posRel df centerY">
 
     <!--linea-->
     <div id="linea" class="fondoOscuro posAb"></div>
 
     <!--puntos-->
     <div id="contPuntos" class="df spaceb">
-        <button v-for="punto in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde">
+        <button 
+        v-for="punto in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde"
+        @click="punto.metodo"
+        >
             <div class="puntito fondoOscuro"></div>
             {{ punto.name }}
         </button>
     </div>
-    <button @click="agregarDestino">Agregar destino</button>
+
+    <ModalDestino ref="modalDestinoRef" />
 
 </div>
 
 </template>
 
 <style scoped>
+
+#timeline{
+    height: 10vh;
+}
 
 #linea{
     width: 100%;

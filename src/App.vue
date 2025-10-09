@@ -8,9 +8,9 @@ let nombre ="Mateo"
 
 <template>
 
-<div id="app" class="bordeRojo df columna centerY">
+<div id="app" class="df columna centerY">
 
-  <div class="intro">
+  <div class="intro df columna centerX">
     <h1 class="fuente">Bienvenido {{ nombre }}!</h1>
     <p class="fuente">Aquí encontrarás toda la información sobre tu viaje</p>
   </div>
@@ -28,6 +28,7 @@ let nombre ="Mateo"
 }
 .intro{
   width: 95%;
+  height: 15vh;
 }
 #timeline{
   width: 95%;

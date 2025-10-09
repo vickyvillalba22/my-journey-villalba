@@ -8,11 +8,23 @@ function guardarInfo(){
     console.log(ciudad.value);
 }
 
+const dialog = ref(null)
+
+function showModal() {
+  dialog.value.showModal()
+}
+
+function closeModal() {
+  dialog.value.close()
+}
+
+defineExpose({ showModal, closeModal })
+
 </script>
 
 <template>
 
-    <dialog>
+    <dialog ref="dialog">
 
         <form action="">
             <label for="ciudad">Ciudad/pueblo</label>
@@ -20,6 +32,7 @@ function guardarInfo(){
         </form>
 
         <button @click="guardarInfo">Confirmar</button>
+        <button @click="closeModal">Cerrar</button>
 
     </dialog>
 
