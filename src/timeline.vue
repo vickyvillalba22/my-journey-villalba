@@ -3,6 +3,8 @@
 import { ref } from 'vue'
 import ModalDestino from './components/agregar_destino.vue'
 
+//inject info del destino
+
 const puntos = [
 
     { name: "Inicio",
