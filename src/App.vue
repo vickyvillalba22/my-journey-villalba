@@ -34,6 +34,9 @@ const puntos =ref([
     }
 ])
 
+//data ingresada por el user
+const dataUser = ref(null)
+
 const modalDestinoRef = ref(null)
 
 function mostrarModal(){
@@ -41,7 +44,7 @@ function mostrarModal(){
 }
 
 //funcion para actualizarlo y hacer el fetch
-function setDestino(nuevoDestino){
+function setDestino(nuevoDestino, datosUser){
 
     //ver si ya existe en el array
     const existe = ciudades.value.find(c => c.name.toLowerCase() === nuevoDestino.toLowerCase())
@@ -53,17 +56,26 @@ function setDestino(nuevoDestino){
 
     fetchCityData(nuevoDestino).then(data => {
 
-      destino.value = data
-      console.log(destino.value);
+      //fusionar la data de la API con la info del usuario
+      const destinoCompleto = {
+        ...data,       // datos traídos del fetch
+        ...datosUser   // datos ingresados por el usuario
+      }
 
-      ciudades.value.push(destino.value)
+      destino.value = destinoCompleto
+      console.log('Destino completo:', destino.value)
+
+      ciudades.value.push(destinoCompleto)
       console.log(ciudades.value);
+      
 
-      puntos.value.push({
+      //Agregar punto en la timeline, siempre después de “Inicio” y antes de “Agregar destino”
+      let posAgregar = puntos.value.findIndex(punto => punto.name === "Agregar destino");
+
+      puntos.value.splice(posAgregar, 0, {
         name: destino.value.name,
         metodo: ()=>{}
       })
-      
       
     })
 
@@ -88,7 +100,7 @@ provide('puntos', puntos)
 
   <Timeline id="timeline" />
 
-  <PanelDestino />
+  <PanelDestino v-if="destino" />
 
   <ModalDestino ref="modalDestinoRef" />
 
