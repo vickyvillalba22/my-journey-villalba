@@ -1,12 +1,16 @@
 <script setup>
 
+import { inject } from 'vue'
+
 import InfoDestino from './components/info_destino.vue';
+
+const destino = inject('destino')
 
 </script>
 
 <template>
 
-    <InfoDestino />
+    <InfoDestino v-if="destino" />
 
 </template>
 

@@ -1,32 +1,8 @@
 <script setup>
 
-import { ref } from 'vue'
-import ModalDestino from './components/agregar_destino.vue'
+import { ref, inject } from 'vue'
 
-//inject info del destino
-
-const puntos = [
-
-    { name: "Inicio",
-      metodo: ()=>{}  
-    }, 
-
-    { name: "Agregar destino",
-      metodo: ()=>{
-        mostrarModal()
-      } 
-    },
-
-    { name: "Final",
-      metodo: ()=>{}
-    }
-]
-
-const modalDestinoRef = ref(null)
-
-function mostrarModal(){
-    modalDestinoRef.value.showModal()
-}
+const puntos = inject('puntos')
 
 </script>
 
@@ -39,16 +15,17 @@ function mostrarModal(){
 
     <!--puntos-->
     <div id="contPuntos" class="df spaceb">
+
         <button 
         v-for="punto in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde"
         @click="punto.metodo"
         >
             <div class="puntito fondoOscuro"></div>
+            <i v-if="punto.name === 'Agregar destino'" class="fi fi-rr-plus"></i>
             {{ punto.name }}
+
         </button>
     </div>
-
-    <ModalDestino ref="modalDestinoRef" />
 
 </div>
 
