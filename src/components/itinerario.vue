@@ -6,7 +6,7 @@ const destino = inject('destino')
 
 const actividades = computed(() => destino.value?.actividades ?? [])
 
-console.log(actividades);
+//console.log(actividades);
 
 </script>
 

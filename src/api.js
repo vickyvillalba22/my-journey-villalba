@@ -87,6 +87,7 @@ export async function fetchCityData(cityName, maxPOIs = 10) {
       state: coords.state,
       country: coords.country,
       description: cityWiki.description,
+      cityPhoto: cityWiki.photo,
       pois: poisWithPhotos
     };
   } catch (error) {

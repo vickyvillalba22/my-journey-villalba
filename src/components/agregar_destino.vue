@@ -34,6 +34,8 @@ function guardarInfo(){
   }
 
   console.log(userData);
+
+  closeModal();
   
   console.log(ciudad.value);
   setDestino(ciudad.value, userData)

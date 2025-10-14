@@ -1,12 +1,12 @@
 <script setup>
 
-import { inject, computed } from 'vue'
+import { inject, computed, ref } from 'vue'
 
 const destino = inject('destino')
 
 const pois = computed(() => destino.value?.pois || [])
 
-console.log(pois);
+//console.log(pois);
 
 function agregarActividades(i){
 
@@ -21,6 +21,9 @@ function agregarActividades(i){
 
 }
 
+//imagenes
+const defImg = '/assets/imgs/poi-default.jpg'
+
 </script>
 
 <template>
@@ -30,7 +33,7 @@ function agregarActividades(i){
         <h3>Puntos de interés</h3>
 
         <div v-for="(poi, i) in pois" :key="i">
-            <img src="" alt="">
+            <img :src="poi.photo || defImg" alt="">
             <h4>{{ poi.name }}</h4>
             <button @click="agregarActividades(i)">Agregar a mis actividades</button>
         </div>

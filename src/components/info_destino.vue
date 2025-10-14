@@ -1,6 +1,6 @@
 <script setup>
 
-import { inject, watch } from 'vue';
+import { inject, watch, ref } from 'vue';
 
 const destino = inject('destino')
 const setDestino = inject('setDestino')
@@ -15,12 +15,15 @@ watch(destino, (nuevo) => {
     }
 })
 
+//imagenes
+const defImg = '/assets/imgs/city-default.jpg'
+
 </script>
 
 <template>
 
     <section class="bordeRojo">
-        <img src="" alt="">
+        <img :src="destino.cityPhoto || defaultImg" alt="">
         <h2>{{ destino.name }}</h2>
         <h3>{{ destino.state }}, {{ destino.country }}</h3>
         <p>{{ destino.description }}</p>
