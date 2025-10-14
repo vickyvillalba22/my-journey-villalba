@@ -1,6 +1,6 @@
 <script setup>
 
-import { ref, inject } from 'vue'
+import { inject } from 'vue'
 
 const puntos = inject('puntos')
 
@@ -25,6 +25,7 @@ const puntos = inject('puntos')
             {{ punto.name }}
 
         </button>
+
     </div>
 
 </div>

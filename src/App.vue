@@ -13,6 +13,9 @@ let nombre ="Mateo"
 //creo el estado global de destino
 const destino = ref(null)
 
+//estado para saber si el panel esta visible
+const panelVisible = ref(false)
+
 //array reactivo de ciudades
 const ciudades = ref([])
 
@@ -51,6 +54,7 @@ function setDestino(nuevoDestino, datosUser){
     if (existe) {
       destino.value = existe
       console.log('Ciudad ya existe:', destino.value)
+      panelVisible.value = true
       return
     }
 
@@ -67,14 +71,18 @@ function setDestino(nuevoDestino, datosUser){
 
       ciudades.value.push(destinoCompleto)
       console.log(ciudades.value);
-      
+
+      panelVisible.value = true
 
       //Agregar punto en la timeline, siempre después de “Inicio” y antes de “Agregar destino”
       let posAgregar = puntos.value.findIndex(punto => punto.name === "Agregar destino");
 
       puntos.value.splice(posAgregar, 0, {
         name: destino.value.name,
-        metodo: ()=>{}
+        metodo: ()=>{
+          destino.value = destinoCompleto
+          panelVisible.value = true
+        }
       })
       
     })
@@ -100,7 +108,7 @@ provide('puntos', puntos)
 
   <Timeline id="timeline" />
 
-  <PanelDestino v-if="destino" />
+  <PanelDestino v-if="panelVisible" />
 
   <ModalDestino ref="modalDestinoRef" />
 
