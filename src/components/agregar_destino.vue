@@ -29,7 +29,8 @@ function guardarInfo(){
     horaLlegada: horaLlegada.value,
     salida: salida.value,
     horaSalida: horaSalida.value,
-    estadia: estadia.value
+    estadia: estadia.value,
+    actividades: []
   }
 
   console.log(userData);

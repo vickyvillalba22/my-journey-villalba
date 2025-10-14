@@ -15,7 +15,6 @@ watch(destino, (nuevo) => {
     }
 })
 
-
 </script>
 
 <template>
