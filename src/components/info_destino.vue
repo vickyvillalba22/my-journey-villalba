@@ -23,7 +23,7 @@ const defImg = '/assets/imgs/city-default.jpg'
 <template>
 
     <section class="bordeRojo">
-        <img :src="destino.cityPhoto || defaultImg" alt="">
+        <img :src="destino.cityPhoto || defImg" alt="">
         <h2>{{ destino.name }}</h2>
         <h3>{{ destino.state }}, {{ destino.country }}</h3>
         <p>{{ destino.description }}</p>

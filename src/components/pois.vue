@@ -28,18 +28,40 @@ const defImg = '/assets/imgs/poi-default.jpg'
 
 <template>
 
-    <div class="bordeRojo">
+    <div class="bordeRojo pois">
 
         <h3>Puntos de interés</h3>
 
-        <div v-for="(poi, i) in pois" :key="i">
-            <img :src="poi.photo || defImg" alt="">
-            <h4>{{ poi.name }}</h4>
-            <button @click="agregarActividades(i)">Agregar a mis actividades</button>
+        <div class="df spacee">
+
+            <div v-for="(poi, i) in pois" :key="i" class="poi">
+                <img :src="poi.photo || defImg" alt="" class="objCover">
+                <h4>{{ poi.name }}</h4>
+                <button @click="agregarActividades(i)">Agregar a mis actividades</button>
+            </div>
+
         </div>
 
     </div>
 
 </template>
 
-<style></style>
+<style scoped>
+
+.pois{
+    height: 40vh;
+    gap: 10px;
+
+    overflow: auto;
+}
+
+.poi{
+    width: 30%;
+}
+
+.poi img{
+    width: 100%;
+    height: 30vh;
+}
+
+</style>

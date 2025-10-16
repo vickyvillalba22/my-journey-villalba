@@ -13,14 +13,43 @@ const destino = inject('destino')
 
 <template>
 
-    <InfoDestino />
+    <div class="panel df spaceb">
 
-    <UserItems />
+        <div class="df columna izquierdo bordeRojo">
 
-    <Pois />
+            <InfoDestino />
 
-    <Itinerario />
+            <UserItems />
+
+        </div>
+
+        <div class="df columna derecho bordeRojo">
+
+            <Pois />
+
+            <Itinerario />
+
+        </div>
+
+    </div>
 
 </template>
 
-<style></style>
+<style scoped>
+
+.panel{
+    width: 95%;
+}
+
+.izquierdo{
+    width: 30%;
+    height: 70vh;
+}
+
+.derecho{
+    width: 65%;
+    height: 70vh;
+}
+
+
+</style>
