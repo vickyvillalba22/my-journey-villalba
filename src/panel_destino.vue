@@ -15,7 +15,7 @@ const destino = inject('destino')
 
     <div class="panel df spaceb">
 
-        <div class="df columna izquierdo bordeRojo">
+        <div class="df columna spaceb izquierdo bordeRojo">
 
             <InfoDestino />
 
@@ -42,7 +42,7 @@ const destino = inject('destino')
 }
 
 .izquierdo{
-    width: 30%;
+    width: 25%;
     height: 70vh;
 }
 

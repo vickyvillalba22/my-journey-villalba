@@ -56,13 +56,13 @@ function guardarInfo(){
             <label for="llegada">En qué llegas</label>
             <input v-model="llegada" type="text" name="" id="llegada">
 
-            <label for="horaLlegada">Horario</label>
+            <label for="horaLlegada">Fecha y horario de llegada</label>
             <input v-model="horaLlegada" type="datetime-local" name="" id="horaLlegada">
 
             <label for="salida">En qué te vas</label>
             <input v-model="salida" type="text" name="" id="salida">
 
-            <label for="horaSalida">Horario</label>
+            <label for="horaSalida">Fecha y horario de salida</label>
             <input v-model="horaSalida" type="datetime-local" name="" id="horaSalida">
 
             <label for="estadia">Donde te quedás</label>

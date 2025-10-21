@@ -22,13 +22,37 @@ const defImg = '/assets/imgs/city-default.jpg'
 
 <template>
 
-    <section class="bordeRojo">
-        <img :src="destino.cityPhoto || defImg" alt="">
-        <h2>{{ destino.name }}</h2>
-        <h3>{{ destino.state }}, {{ destino.country }}</h3>
-        <p>{{ destino.description }}</p>
+    <section class="df columna spaceb">
+
+        <img :src="destino.cityPhoto || defImg" alt="" class="objCover">
+        <h2 class="fuente">{{ destino.name }}</h2>
+        <h3 class="fuente verdeOscuro">{{ destino.state }}, {{ destino.country }}</h3>
+        <p class="fuente">{{ destino.description }}</p>
+
     </section>
 
 </template>
 
-<style></style>
+<style scoped>
+
+section{
+    height: 50vh;
+}
+
+section img{
+    height: 25vh;
+    border-radius: 10px;
+}
+
+section h3{
+    font-size: 1em;
+    font-weight: 500;
+}
+
+section p{
+    font-size: 0.9em;
+    height: 14vh;
+    overflow: auto;
+}
+
+</style>
