@@ -12,16 +12,47 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 
 <template>
 
-    <div class="bordeRojo">
+    <div class="itinerario df columna spacee">
 
-        <h3>Mis actividades</h3>
+        <h3 class="fuente">Mis actividades</h3>
 
-        <div v-for="(act, i) in actividades" :key="i">
-            <p>{{ act.name }}</p>
+        <div class="df columna contActividades">
+
+            <div v-for="(act, i) in actividades" :key="i" class="actividad">
+                <p class="fuente">{{ act.name }}</p>
+            </div>
+
         </div>
 
     </div>
 
 </template>
 
-<style></style>
+<style scoped>
+
+.itinerario{
+    height: 25vh;
+}
+
+.actividad{
+
+    border-radius: 8px;
+    padding: 5px;
+    width: 100%;
+    height: fit-content;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+}
+
+.actividad p{
+    padding-left: 12px;
+}
+
+.contActividades{
+    gap: 8px;
+}
+
+
+
+</style>

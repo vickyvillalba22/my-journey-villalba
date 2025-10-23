@@ -59,7 +59,7 @@ section h3{
 
 /*Pois: section*/
 .pois{
-    height: 40vh;
+    height: 45vh;
 }
 
 .contPois{
