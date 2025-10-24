@@ -99,7 +99,7 @@ provide('puntos', puntos)
 
 <template>
 
-<div id="app" class="df columna centerY">
+<div id="app" class="df columna centerY fondoBlanco">
 
   <div class="intro df columna centerX">
     <h1 class="fuente">Bienvenido {{ nombre }}!</h1>
@@ -119,8 +119,9 @@ provide('puntos', puntos)
 <style scoped>
 
 #app{
-  width: 100%;
+  height: 100vh;
 }
+
 .intro{
   width: 95%;
   height: 15vh;

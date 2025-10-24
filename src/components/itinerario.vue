@@ -12,11 +12,11 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 
 <template>
 
-    <div class="itinerario fondoAzul">
+    <div class="itinerario">
 
         <div class="cajaItinerario df columna">
 
-            <h3 class="fuente blanco">Mis actividades</h3>
+            <h3 class="fuente">Mis actividades</h3>
 
             <div class="df columna contActividades">
 
@@ -35,7 +35,8 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 <style scoped>
 
 .itinerario{
-    border-radius: 15px;
+    border: 1px solid rgba(128, 128, 128, 0.54);
+    border-radius: 30px;
     padding: 20px;
     height: 100%;
 }

@@ -12,16 +12,19 @@ const items = computed(()=>{
         {
             icon: "fi fi-tr-plane-arrival", 
             data: destino.value.llegada,
-            horario: destino.value.horaLlegada
-        }, 
-        {
-            icon: "fi fi-tr-hotel", 
-            data: destino.value.estadia,
-        }, 
+            horario: destino.value.horaLlegada,
+            colorFondo: "fondoMedio"
+        },  
         {   
             icon: "fi fi-tr-plane-departure", 
             data: destino.value.salida,
-            horario: destino.value.horaSalida
+            horario: destino.value.horaSalida,
+            colorFondo: "fondoVerdeOscuro"
+        },
+        {
+            icon: "fi fi-tr-hotel", 
+            data: destino.value.estadia,
+            colorFondo: "fondoAzul"
         }
     ]
 
@@ -34,7 +37,7 @@ const items = computed(()=>{
 
     <div class="df columna spaceb contItems">
 
-        <div v-for="(item, i) in items" :key=i class="item df centerY">
+        <div v-for="(item, i) in items" :key=i class="item df centerY fitContent" :class="item.colorFondo">
             <i :class="item.icon" class="blanco"></i>
             <p class="blanco fuente">{{ item.data }}</p>
             <p v-if="item.horario" class="blanco fuente">{{ item.horario }}</p>
@@ -46,23 +49,17 @@ const items = computed(()=>{
 
 <style scoped>
 
-.contItems{
-    height: 18vh;
-}
-
 .item{
-    background-color: #007580;
-    height: 27%;
-    border-radius: 5px;
+    height: fit-content;
+    border-radius: 50%;
 }
 
 .item i{
-    padding-left: 8px;
+    padding: 10px;
 }
 
 .item p{
     font-size: 0.8em;
-    padding-left: 8px;
 }
 
 </style>

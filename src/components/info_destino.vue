@@ -2,6 +2,8 @@
 
 import { inject, watch, ref } from 'vue';
 
+import UserItems from './user_items.vue'
+
 const destino = inject('destino')
 const setDestino = inject('setDestino')
 
@@ -24,10 +26,21 @@ const defImg = '/assets/imgs/city-default.jpg'
 
     <section class="df columna spaceb">
 
-        <img :src="destino.cityPhoto || defImg" alt="" class="objCover">
-        <h2 class="fuente">{{ destino.name }}</h2>
-        <h3 class="fuente verdeOscuro">{{ destino.state }}, {{ destino.country }}</h3>
-        <p class="fuente">{{ destino.description }}</p>
+        <div class="imagenDestino posRel df">
+
+            <img :src="destino.cityPhoto || defImg" alt="" class="objCover">
+
+            <div class="info posAb df columna spaceb">
+
+                <h2 class="fuente blanco">{{ destino.name }}</h2>
+                <h3 class="fuente blanco">{{ destino.state }}, {{ destino.country }}</h3>
+                <p class="fuente blanco">{{ destino.description }}</p>
+
+                <UserItems />
+
+            </div>
+
+        </div>
 
     </section>
 
@@ -36,12 +49,26 @@ const defImg = '/assets/imgs/city-default.jpg'
 <style scoped>
 
 section{
-    height: 50vh;
+    height: 70vh;
 }
 
 section img{
-    height: 25vh;
-    border-radius: 10px;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.imagenDestino{
+    height: 100%;
+    width: 100%;
+}
+
+.imagenDestino img{
+    width: 100%;
+    filter: brightness(0.6);
+}
+.info{
+    height: 90%;
+    margin: 20px;
 }
 
 section h3{
@@ -51,8 +78,6 @@ section h3{
 
 section p{
     font-size: 0.9em;
-    height: 14vh;
-    overflow: auto;
 }
 
 </style>
