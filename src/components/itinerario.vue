@@ -12,14 +12,18 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 
 <template>
 
-    <div class="itinerario df columna spacee">
+    <div class="itinerario fondoAzul">
 
-        <h3 class="fuente">Mis actividades</h3>
+        <div class="cajaItinerario df columna">
 
-        <div class="df columna contActividades">
+            <h3 class="fuente blanco">Mis actividades</h3>
 
-            <div v-for="(act, i) in actividades" :key="i" class="actividad">
-                <p class="fuente">{{ act.name }}</p>
+            <div class="df columna contActividades">
+
+                <div v-for="(act, i) in actividades" :key="i" class="actividad fondoBlanco">
+                    <p class="fuente">{{ act.name }}</p>
+                </div>
+
             </div>
 
         </div>
@@ -31,7 +35,17 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 <style scoped>
 
 .itinerario{
-    height: 25vh;
+    border-radius: 15px;
+    padding: 20px;
+    height: 100%;
+}
+
+.cajaItinerario{
+    gap: 10px;
+}
+
+h3{
+    font-weight: 400;
 }
 
 .actividad{

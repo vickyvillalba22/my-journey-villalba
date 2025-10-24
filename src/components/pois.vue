@@ -28,11 +28,11 @@ const defImg = '/assets/imgs/poi-default.jpg'
 
 <template>
 
-    <section class="pois df columna spacee">
+    <section class="pois df columna">
 
         <h3 class="fuente">Puntos de interés</h3>
 
-        <div class="df contPois">
+        <div class="df contPois wrap">
 
             <div v-for="(poi, i) in pois" :key="i" class="poi df columna centerX centerY posRel">
                 <img :src="poi.photo || defImg" alt="" class="objCover">
@@ -59,13 +59,17 @@ section h3{
 
 /*Pois: section*/
 .pois{
-    height: 45vh;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 30px;
+
+    gap: 20px;
+    padding: 30px;
 }
 
 .contPois{
-    gap: 10px;
-    overflow-x: auto;
-    flex-wrap: nowrap;
+    gap: 20px;
+    overflow: auto;
 }
 
 .poi{

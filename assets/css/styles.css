@@ -26,6 +26,9 @@
 .blanco{
     color: white;
 }
+.fondoBlanco{
+    background-color: #F0F5F4;
+}
 .negro{
     color: black;
 }
@@ -52,6 +55,9 @@
 } 
 .fondoAcento{
     background-color: #00FF93;
+}
+.fondoAzul{
+    background-color: #001F3E;
 }
 
 

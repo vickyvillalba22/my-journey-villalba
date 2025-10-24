@@ -15,7 +15,7 @@ const destino = inject('destino')
 
     <div class="panel df spaceb">
 
-        <div class="df columna spaceb izquierdo">
+        <div class="df columna spaceb bloque1">
 
             <InfoDestino />
 
@@ -23,9 +23,13 @@ const destino = inject('destino')
 
         </div>
 
-        <div class="df columna derecho">
+        <div class="df columna bloque2">
 
             <Pois />
+
+        </div>
+
+        <div class="bloque3">
 
             <Itinerario />
 
@@ -39,16 +43,17 @@ const destino = inject('destino')
 
 .panel{
     width: 95%;
+    height: 70vh;
 }
 
-.izquierdo{
+.bloque1{
     width: 25%;
-    height: 70vh;
 }
-
-.derecho{
-    width: 65%;
-    height: 70vh;
+.bloque2{
+    width: 45%;
+}
+.bloque3{
+    width: 20%;
 }
 
 
