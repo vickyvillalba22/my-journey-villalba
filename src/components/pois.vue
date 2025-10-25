@@ -37,11 +37,24 @@ const defImg = '/assets/imgs/poi-default.jpg'
             <div v-for="(poi, i) in pois" :key="i" class="poi df columna centerX centerY posRel">
                 <img :src="poi.photo || defImg" alt="" class="objCover">
                     <div class="posAb elementsPoi df columna spaceb">
+
                         <h4 class="fuente blanco">{{ poi.name }}</h4>
-                        <button 
-                        @click="agregarActividades(i)"
-                        class="sinBorde fuente fondoAcento"
-                        >Agregar a mis actividades</button>
+
+                        <div class="contBotones df">
+
+                            <button 
+                            class="sinBorde fuente fondoAcento fitContent">
+                            <i class="fi fi-rr-info oscuro"></i>
+                            </button>
+
+                            <button 
+                            @click="agregarActividades(i)"
+                            class="sinBorde fuente fondoBlanco fitContent">
+                            <i class="fi fi-rr-plus oscuro"></i>
+                            </button>
+
+                        </div>
+
                     </div>
             </div>
 
@@ -81,23 +94,34 @@ section h3{
     width: 100%;
     height: 100%;
     filter: brightness(0.6);
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .elementsPoi{
     height: 90%;
     width: 90%;
+    padding: 5px;
 }
 
 h4{
-    font-weight: 300;
-    font-size: 0.9em;
+    font-weight: 500;
+    font-size: 1em;
+    width: 100%;
+}
+
+.contBotones{
+    width: 100%;
+    justify-content: end;
 }
 
 button{
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 0.7em;
-    padding: 5px 0px;
+    padding: 10px;
+}
+
+i{
+    font-size: 1em;
 }
 
 
