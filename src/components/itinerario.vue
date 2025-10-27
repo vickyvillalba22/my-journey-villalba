@@ -6,7 +6,14 @@ const destino = inject('destino')
 
 const actividades = computed(() => destino.value?.actividades ?? [])
 
-//console.log(actividades);
+console.log(actividades);
+
+//imagenes
+const defImg = '/assets/imgs/poi-default.jpg'
+
+function deleteAct(index){
+    destino.value.actividades.splice(index, 1)
+}
 
 </script>
 
@@ -20,8 +27,18 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 
             <div class="df columna contActividades">
 
-                <div v-for="(act, i) in actividades" :key="i" class="actividad fondoBlanco">
+                <div v-for="(act, i) in actividades" :key="i" class="actividad fondoBlanco df spaceb">
+
+                    <img :src="act.photo || defImg" alt="">
                     <p class="fuente">{{ act.name }}</p>
+
+                    <button 
+                    class="fondoTransparente sinBorde"
+                    @click="deleteAct(i)"
+                    >
+                    <i class="fi fi-rr-cross-small"></i>
+                    </button>
+
                 </div>
 
             </div>
@@ -39,6 +56,7 @@ const actividades = computed(() => destino.value?.actividades ?? [])
     border-radius: 30px;
     padding: 20px;
     height: 100%;
+    overflow: auto;
 }
 
 .cajaItinerario{
@@ -60,12 +78,21 @@ h3{
 
 }
 
+.actividad img{
+    width: 25%;
+    border-radius: 5px;
+}
+
 .actividad p{
     padding-left: 12px;
 }
 
 .contActividades{
     gap: 8px;
+}
+
+button i{
+    font-size: 1.5em;
 }
 
 

@@ -6,6 +6,10 @@ import Timeline from './timeline.vue'
 import PanelDestino from './panel_destino.vue'
 import ModalDestino from './components/agregar_destino.vue'
 
+//loader
+import Loader from './components/loader.vue'
+const isLoading = ref(false)
+
 import { fetchCityData } from './api.js'
 
 let nombre ="Mateo"
@@ -58,7 +62,11 @@ function setDestino(nuevoDestino, datosUser){
       return
     }
 
-    fetchCityData(nuevoDestino).then(data => {
+    isLoading.value = true
+
+    fetchCityData(nuevoDestino)
+
+      .then(data => {
 
       //fusionar la data de la API con la info del usuario
       const destinoCompleto = {
@@ -86,6 +94,10 @@ function setDestino(nuevoDestino, datosUser){
       })
       
     })
+    .catch(err => console.error(err))
+    .finally(()=>{
+      isLoading.value = false
+    })
 
 
 }
@@ -111,6 +123,8 @@ provide('puntos', puntos)
   <PanelDestino v-if="panelVisible" />
 
   <ModalDestino ref="modalDestinoRef" />
+
+  <Loader v-if="isLoading" />
 
 </div> 
 

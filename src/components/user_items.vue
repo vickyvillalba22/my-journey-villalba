@@ -1,6 +1,6 @@
 <script setup>
 
-import { inject, computed } from 'vue'
+import { inject, computed, ref } from 'vue'
 
 const destino = inject('destino')
 
@@ -31,16 +31,25 @@ const items = computed(()=>{
 
 })
 
+const hoverItem = ref(null)
+
 </script>
 
 <template>
 
     <div class="df columna spaceb contItems">
 
-        <div v-for="(item, i) in items" :key=i class="item df centerY fitContent" :class="item.colorFondo">
+        <div 
+        v-for="(item, i) in items" 
+        :key=i 
+        class="item df centerY fitContent" :class="[item.colorFondo, { expandido: hoverItem === i }]"
+        @mouseenter="hoverItem = i"
+        @mouseleave="hoverItem = null"
+        >
             <i :class="item.icon" class="blanco"></i>
-            <p class="blanco fuente">{{ item.data }}</p>
-            <p v-if="item.horario" class="blanco fuente">{{ item.horario }}</p>
+            <p v-if="hoverItem === i" class="blanco fuente">{{ item.data }}</p>
+            <p v-if="hoverItem === i && item.horario" class="blanco fuente">{{ item.horario }}</p>
+
         </div>
 
     </div>
@@ -52,6 +61,12 @@ const items = computed(()=>{
 .item{
     height: fit-content;
     border-radius: 50%;
+    gap: 10px;
+}
+
+.item.expandido{
+    border-radius: 10px;
+    width: fit-content;
 }
 
 .item i{
@@ -60,6 +75,7 @@ const items = computed(()=>{
 
 .item p{
     font-size: 0.8em;
+    padding-right: 10px;
 }
 
 </style>

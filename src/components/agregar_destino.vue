@@ -21,14 +21,27 @@ const salida = ref('')
 const horaSalida = ref('')
 const estadia = ref('')
 
+function formatDateTime(datetimeStr) {
+  if (!datetimeStr) return ''
+  const fecha = new Date(datetimeStr)
+  return fecha.toLocaleString('es-ES', {
+    dateStyle: 'short',
+    timeStyle: 'short'
+  })
+}
+
+function mayus(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function guardarInfo(){
 
   const userData = {
-    city: ciudad.value,
-    llegada: llegada.value,
-    horaLlegada: horaLlegada.value,
+    city: mayus(ciudad.value.trim()),
+    llegada: llegada.value.trim(),
+    horaLlegada: formatDateTime(horaLlegada.value),
     salida: salida.value,
-    horaSalida: horaSalida.value,
+    horaSalida: formatDateTime(horaSalida.value),
     estadia: estadia.value,
     actividades: []
   }
@@ -38,7 +51,7 @@ function guardarInfo(){
   closeModal();
   
   console.log(ciudad.value);
-  setDestino(ciudad.value, userData)
+  setDestino(userData.city, userData)
 }
 
 
@@ -46,35 +59,132 @@ function guardarInfo(){
 
 <template>
 
-    <dialog ref="dialog">
+    <dialog ref="dialog" class="df sinBorde">
 
-        <form action="">
+      <div class="contForm1 df centerX centerY">
 
-            <label for="ciudad">Ciudad/pueblo</label>
-            <input v-model="ciudad" type="text" name="ciudad" id="ciudad">
+        <div class="contForm2 df columna spaceb">
 
-            <label for="llegada">En qué llegas</label>
-            <input v-model="llegada" type="text" name="" id="llegada">
+            <button @click="closeModal" class="fuente close df fondoTransparente sinBorde">
+              <i class="fi fi-rr-cross-small"></i>
+            </button>
 
-            <label for="horaLlegada">Fecha y horario de llegada</label>
-            <input v-model="horaLlegada" type="datetime-local" name="" id="horaLlegada">
+            <i class="fi fi-tr-person-luggage verdeOscuro df centerX"></i>
 
-            <label for="salida">En qué te vas</label>
-            <input v-model="salida" type="text" name="" id="salida">
+          <form action="" class="df columna spacee">
 
-            <label for="horaSalida">Fecha y horario de salida</label>
-            <input v-model="horaSalida" type="datetime-local" name="" id="horaSalida">
+            <div class="df columna">
+              <label for="ciudad" class="fuente doble">Ciudad/pueblo</label>
+              <input v-model="ciudad" type="text" name="ciudad" id="ciudad" class="fuente">
+            </div>
 
-            <label for="estadia">Donde te quedás</label>
-            <input v-model="estadia" type="text" name="" id="estadia">
+              <div class="df spaceb">
 
-        </form>
+                <div class="df columna corto">
 
-        <button @click="guardarInfo">Confirmar</button>
-        <button @click="closeModal">Cerrar</button>
+                  <label for="llegada" class="fuente">En qué llegas</label>
+                  <input v-model="llegada" type="text" name="" id="llegada" class="fuente">
+
+                </div>
+
+                <div class="df columna corto">
+
+                  <label for="horaLlegada" class="fuente">Fecha y horario de llegada</label>
+                  <input v-model="horaLlegada" type="datetime-local" name="" id="horaLlegada" class="fuente">
+
+                </div>
+
+              </div>
+
+              <div class="df spaceb">
+
+                <div class="df columna corto">
+
+                  <label for="salida" class="fuente">En qué te vas</label>
+                  <input v-model="salida" type="text" name="" id="salida" class="fuente">
+
+                </div>
+
+                <div class="df columna corto">
+
+                  <label for="horaSalida" class="fuente">Fecha y horario de salida</label>
+                  <input v-model="horaSalida" type="datetime-local" name="" id="horaSalida" class="fuente">
+
+                </div>
+
+              </div>
+
+              <div class="df columna">
+              
+                <label for="estadia" class="fuente">Donde te quedás</label>
+                <input v-model="estadia" type="text" name="" id="estadia" class="fuente">
+
+              </div>
+
+          </form>
+
+          <div class="w100 df centerX">
+            <button @click="guardarInfo" class="fuente fitContent sinBorde fondoVerdeOscuro blanco">Confirmar</button>
+          </div>
+
+        </div>
+
+      </div>
 
     </dialog>
 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+  dialog{
+    position: fixed;
+    left: 40%;
+    top: 30%;
+
+    width: 25%;
+    height: 60vh;
+
+    border-radius: 20px;
+  }
+
+  .contForm1{
+    width: 100%;
+    height: 100%;
+  }
+
+  .contForm2{
+    width: 90%;
+    height: 90%;
+  }
+
+  .contForm2 i{
+    font-size: 2.5em;
+  }
+
+  .close{
+    justify-content: end;
+  }
+  .close i{
+    font-size: 1.5em;
+  }
+
+  .corto{
+    width: 45%;
+  }
+
+  form{
+    height: 35vh;
+  }
+
+  label{
+    font-size: 0.9em;
+  }
+
+  button{
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+</style>
