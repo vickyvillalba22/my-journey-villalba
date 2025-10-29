@@ -4,6 +4,7 @@ import { inject } from 'vue'
 
 const puntos = inject('puntos')
 
+
 </script>
 
 <template>
@@ -17,12 +18,15 @@ const puntos = inject('puntos')
     <div id="contPuntos" class="df spaceb">
 
         <button 
-        v-for="punto in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde"
+        v-for="(punto, i) in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde"
         @click="punto.metodo"
+        :key="i"
         >
             <div class="puntito fondoOscuro"></div>
             <i v-if="punto.name === 'Agregar destino'" class="fi fi-rr-plus"></i>
             {{ punto.name }}
+            <i @click="punto.eliminar" v-if="punto.name != 'Agregar destino' && punto.name != 'Inicio' && punto.name != 'Final'" class="fi fi-rr-cross"></i>
+
 
         </button>
 

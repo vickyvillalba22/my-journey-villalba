@@ -53,7 +53,7 @@ function mostrarModal(){
 //funcion para actualizarlo y hacer el fetch
 function setDestino(nuevoDestino, datosUser){
 
-    //ver si ya existe en el array
+    //ver si ya existe en el array de ciudades agregadas
     const existe = ciudades.value.find(c => c.name.toLowerCase() === nuevoDestino.toLowerCase())
     if (existe) {
       destino.value = existe
@@ -67,6 +67,13 @@ function setDestino(nuevoDestino, datosUser){
     fetchCityData(nuevoDestino)
 
       .then(data => {
+
+      //si la ciudad no existe, fetchCityData devuelve null
+      if (!data) {
+        alert('Ciudad no encontrada. Por favor verificá el nombre.') // O un mensaje más elegante
+        isLoading.value = false
+        return
+      }
 
       //fusionar la data de la API con la info del usuario
       const destinoCompleto = {
@@ -90,6 +97,29 @@ function setDestino(nuevoDestino, datosUser){
         metodo: ()=>{
           destino.value = destinoCompleto
           panelVisible.value = true
+        },
+        eliminar: ()=>{
+
+          //buscamos el index
+          const indexCiudad = ciudades.value.findIndex(city => city.name === destinoCompleto.name)
+          //si es distinto de -1 (de que no existe) lo eliminamos del array de ciudades
+          if (indexCiudad !== -1) {
+            ciudades.value.splice(indexCiudad, 1)
+          }
+
+          //ahora hacemos los mismo pero con el array de puntos
+          const indexPunto = puntos.value.findIndex(p => p.name === destinoCompleto.name)
+          if (indexPunto !== -1) {
+            puntos.value.splice(indexPunto, 1)
+          }
+
+          // Si era el destino visible, ocultar el panel
+          if (destino.value && destino.value.name === destinoCompleto.name) {
+            panelVisible.value = false
+            destino.value = null
+          }
+
+
         }
       })
       

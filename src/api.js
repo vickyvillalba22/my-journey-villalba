@@ -27,7 +27,7 @@ export async function getCityCoords(cityName) {
 }
 
 // Obtener POIs cerca de las coordenadas (máx. 10)
-export async function getPOIs(lat, lon, maxPOIs = 10) {
+export async function getPOIs(lat, lon, maxPOIs = 20) {
   try {
     const url = `${GEO_BASE}?categories=tourism.sights&filter=circle:${lon},${lat},5000&limit=${maxPOIs}&apiKey=${GEO_API_KEY}`;
     const res = await fetch(url);
@@ -59,7 +59,7 @@ export async function getWikiData(name) {
 }
 
 // Función principal: ciudad + POIs + descripción + fotos
-export async function fetchCityData(cityName, maxPOIs = 10) {
+export async function fetchCityData(cityName, maxPOIs = 20) {
   try {
     const coords = await getCityCoords(cityName);
     if (!coords) return null;

@@ -7,6 +7,7 @@ function showModal() {
   dialog.value.showModal()
 }
 function closeModal() {
+  limpiarFormulario()
   dialog.value.close()
 }
 defineExpose({ showModal, closeModal })
@@ -15,6 +16,7 @@ defineExpose({ showModal, closeModal })
 const setDestino = inject('setDestino')
 
 const ciudad = ref('')
+const errorCiudad = ref('')
 const llegada = ref('')
 const horaLlegada = ref('')
 const salida = ref('')
@@ -34,7 +36,25 @@ function mayus(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function limpiarFormulario() {
+  ciudad.value = ''
+  llegada.value = ''
+  horaLlegada.value = ''
+  salida.value = ''
+  horaSalida.value = ''
+  estadia.value = ''
+  errorCiudad.value = ''
+}
+
 function guardarInfo(){
+
+//validacion
+  if(!ciudad.value.trim()){
+    errorCiudad.value = 'La ciudad/pueblo es requerida'
+    return
+  }
+
+  errorCiudad.value = ''
 
   const userData = {
     city: mayus(ciudad.value.trim()),
@@ -59,7 +79,7 @@ function guardarInfo(){
 
 <template>
 
-    <dialog ref="dialog" class="df sinBorde">
+    <dialog ref="dialog" class="sinBorde">
 
       <div class="contForm1 df centerX centerY">
 
@@ -76,6 +96,8 @@ function guardarInfo(){
             <div class="df columna">
               <label for="ciudad" class="fuente doble">Ciudad/pueblo</label>
               <input v-model="ciudad" type="text" name="ciudad" id="ciudad" class="fuente">
+              
+              <p v-if="errorCiudad" class="error fuente">{{ errorCiudad }}</p>
             </div>
 
               <div class="df spaceb">
@@ -185,6 +207,10 @@ function guardarInfo(){
     padding: 5px 20px;
     border-radius: 5px;
     font-size: 0.9em;
+  }
+  .error{
+    font-size: 0.8em;
+    color: brown;
   }
 
 </style>
