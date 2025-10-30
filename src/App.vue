@@ -6,28 +6,32 @@ import Timeline from './timeline.vue'
 import PanelDestino from './panel_destino.vue'
 import ModalDestino from './components/agregar_destino.vue'
 
+import PanelInicio from './panel_inicio.vue'
+
 //loader
 import Loader from './components/loader.vue'
 const isLoading = ref(false)
 
 import { fetchCityData } from './api.js'
 
-let nombre ="Mateo"
-
 //creo el estado global de destino
 const destino = ref(null)
 
-//estado para saber si el panel esta visible
+//estado para saber qué panel esta visible
 const panelVisible = ref(false)
+const panelInicioVis = ref(true)
 
 //array reactivo de ciudades
 const ciudades = ref([])
 
 //array de puntos para la linea de tiempo
-const puntos =ref([
+const puntos = ref([
 
     { name: "Inicio",
-      metodo: ()=>{}  
+      metodo: ()=>{
+        panelVisible.value = false
+        panelInicioVis.value = true
+      }  
     }, 
 
     {   name: "Agregar destino",
@@ -62,6 +66,7 @@ function setDestino(nuevoDestino, datosUser){
       return
     }
 
+    panelInicioVis.value = false
     isLoading.value = true
 
     fetchCityData(nuevoDestino)
@@ -96,6 +101,7 @@ function setDestino(nuevoDestino, datosUser){
         name: destino.value.name,
         metodo: ()=>{
           destino.value = destinoCompleto
+          panelInicioVis.value = false
           panelVisible.value = true
         },
         eliminar: ()=>{
@@ -143,14 +149,11 @@ provide('puntos', puntos)
 
 <div id="app" class="df columna centerY fondoBlanco">
 
-  <div class="intro df columna centerX">
-    <h1 class="fuente">Bienvenido {{ nombre }}!</h1>
-    <p class="fuente">Aquí encontrarás toda la información sobre tu viaje</p>
-  </div>
-
   <Timeline id="timeline" />
 
   <PanelDestino v-if="panelVisible" />
+
+  <PanelInicio v-if="panelInicioVis" />
 
   <ModalDestino ref="modalDestinoRef" />
 
