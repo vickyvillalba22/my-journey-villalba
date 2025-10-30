@@ -9,7 +9,7 @@ const actividades = computed(() => destino.value?.actividades ?? [])
 console.log(actividades);
 
 //imagenes
-const defImg = '/assets/imgs/poi-default.jpg'
+const defImg = '/assets/imgs/act-default.jpg'
 
 function deleteAct(index){
     destino.value.actividades.splice(index, 1)
@@ -27,10 +27,11 @@ function deleteAct(index){
 
             <div class="df columna contActividades">
 
-                <div v-for="(act, i) in actividades" :key="i" class="actividad fondoBlanco df spaceb">
+                <div v-for="(act, i) in actividades" :key="i" class="actividad fondoBlanco df spaceb centerY">
 
-                    <img :src="act.photo || defImg" alt="">
-                    <p class="fuente">{{ act.name }}</p>
+                    <img :src="act.photo || defImg" alt="" class="objCover">
+
+                    <p class="fuente w100">{{ act.name }}</p>
 
                     <button 
                     class="fondoTransparente sinBorde"
@@ -72,19 +73,21 @@ h3{
     border-radius: 8px;
     padding: 5px;
     width: 100%;
-    height: fit-content;
+    height: 10vh;
 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
 }
 
 .actividad img{
     width: 25%;
     border-radius: 5px;
+    height: 100%;
 }
 
 .actividad p{
     padding-left: 12px;
+    text-align: left;
+    font-size: 0.9em;
 }
 
 .contActividades{
@@ -94,7 +97,5 @@ h3{
 button i{
     font-size: 1.5em;
 }
-
-
 
 </style>
