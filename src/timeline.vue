@@ -9,34 +9,43 @@ const puntos = inject('puntos')
 
 <template>
 
-<div id="timeline" class="posRel df centerY bordeRojo">
+<div id="timeline" class="posRel df columna centerY bordeRojo">
+
+    <!--nombres-->
+    <div class="w100 df spaceb">
+
+        <div v-for="(punto, i) in puntos" class="df">
+
+            <p class="fuente" @click="punto.metodo">
+                {{ punto.name }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <!--cont linea y puntos-->
+    <div class="w100 df centerY">
 
     <!--linea-->
-    <div id="linea" class="fondoOscuro posAb df centerY"></div>
+    <div id="linea" class="fondoOscuro df centerY posAb"></div>
 
     <!--puntos-->
-    <div id="contPuntos" class="df spaceb bordeRojo">
+    <div id="contPuntos" class="df spaceb posAb">
 
-        <button 
-        v-for="(punto, i) in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline"
-        @click="punto.metodo"
-        :key="i"
-        >
-            <!--mas agregar
-            <i v-if="punto.name === 'Agregar destino'" class="fi fi-rr-plus"></i>-->
-
-            <div class="puntito fondoOscuro"></div>
-            {{ punto.name }}
-            <i 
-            @click="punto.eliminar" 
-            v-if="punto.name != 'Agregar destino' && punto.name != 'Inicio' && punto.name != 'Final'" 
-            class="fi fi-rr-cross posAb"
-            ></i>
-
+        <button v-for="(punto, i) in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline" @click="punto.metodo" :key="i">
+            
+            <div class="puntito df centerY centerX" :class="punto.colorFondo">
+                <i :class="punto.icono" class="blanco"></i>
+            </div>
 
         </button>
 
     </div>
+    <!--puntos-->
+
+    </div>
+    <!--cont linea y puntos-->
 
 </div>
 
@@ -50,9 +59,8 @@ const puntos = inject('puntos')
 }
 
 .placaTimeline{
-    width: 4vw;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 0px;
 }
 
 #linea{
@@ -60,12 +68,15 @@ const puntos = inject('puntos')
     height: 1px;
 }
 .puntito{
-    width: 12px;
-    height: 12px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
 }
 #contPuntos{
     width: 100%;
+}
+.cruz{
+    font-size: 0.7em;
 }
 
 </style>

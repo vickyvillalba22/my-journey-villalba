@@ -31,17 +31,24 @@ const puntos = ref([
       metodo: ()=>{
         panelVisible.value = false
         panelInicioVis.value = true
-      }  
+      },
+      icono: "fi fi-rr-house-blank",
+      colorFondo: "fondoVerdeOscuro" 
     }, 
 
     {   name: "Agregar destino",
         metodo: ()=>{
         mostrarModal()
-        } 
+        },
+        icono: "fi fi-rr-plus",
+        colorFondo: "fondoMedio" 
+
     },
 
     { name: "Final",
-      metodo: ()=>{}
+      metodo: ()=>{},
+      icono: "fi fi-rr-house-blank",
+      colorFondo: "fondoVerdeOscuro" 
     }
 ])
 
