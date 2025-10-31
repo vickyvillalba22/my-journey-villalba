@@ -133,7 +133,9 @@ function setDestino(nuevoDestino, datosUser){
           }
 
 
-        }
+        },
+        icono: "fi fi-rr-map-marker-check",
+        colorFondo: "fondoVerdeOscuro"
       })
       
     })

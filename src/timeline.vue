@@ -9,14 +9,14 @@ const puntos = inject('puntos')
 
 <template>
 
-<div id="timeline" class="posRel df columna centerY bordeRojo">
+<div id="timeline" class="posRel df columna centerY spacea">
 
     <!--nombres-->
     <div class="w100 df spaceb">
 
         <div v-for="(punto, i) in puntos" class="df">
 
-            <p class="fuente" @click="punto.metodo">
+            <p class="fuente nombre" @click="punto.metodo">
                 {{ punto.name }}
             </p>
 
@@ -36,7 +36,7 @@ const puntos = inject('puntos')
         <button v-for="(punto, i) in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline" @click="punto.metodo" :key="i">
             
             <div class="puntito df centerY centerX" :class="punto.colorFondo">
-                <i :class="punto.icono" class="blanco"></i>
+                <i :class="punto.icono" class="blanco df"></i>
             </div>
 
         </button>
