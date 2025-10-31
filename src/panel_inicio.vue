@@ -48,7 +48,7 @@ const activities = [
 
 <template>
 
-<main class="df bordeRojo">
+<main class="df bordeRojo spaceb">
 
 <section id="heroSection" class="bordeRojo df posRel">
 
@@ -104,7 +104,8 @@ const activities = [
 <style scoped>
 
 main{
-    width: 100vw;
+    width: 90vw;
+    height: 80vh;
 }
 
 #heroSection{

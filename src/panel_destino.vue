@@ -39,8 +39,8 @@ const destino = inject('destino')
 <style scoped>
 
 .panel{
-    width: 95%;
-    height: 70vh;
+    width: 90vw;
+    height: 80vh;
 }
 
 .bloque1{

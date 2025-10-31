@@ -147,9 +147,9 @@ provide('puntos', puntos)
 
 <template>
 
-<div id="app" class="df columna centerY fondoBlanco">
+<div id="app" class="df columna spacee centerY fondoBlanco">
 
-  <Timeline id="timeline" />
+  <Timeline />
 
   <PanelDestino v-if="panelVisible" />
 
@@ -167,14 +167,6 @@ provide('puntos', puntos)
 
 #app{
   height: 100vh;
-}
-
-.intro{
-  width: 95%;
-  height: 15vh;
-}
-#timeline{
-  width: 95%;
 }
 
 </style>
