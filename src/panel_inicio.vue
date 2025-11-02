@@ -48,24 +48,24 @@ const activities = [
 
 <template>
 
-<main class="df bordeRojo spaceb">
+<main class="df spaceb">
 
-<section id="heroSection" class="bordeRojo df posRel">
+<section id="heroSection" class="df posRel">
 
     <img src="/assets/imgs/home-hero.jpg" alt="" class="objCover w100">
 
-    <div class="intro df columna centerX posAb bordeRojo">
+    <div class="intro df columna centerX posAb">
         <h1 class="fuente blanco">Bienvenido {{ nombre }}!</h1>
         <p class="fuente blanco">Aquí podrás registrar toda la información necesaria sobre tu viaje.</p>
     </div>
 
 </section>
 
-<section class="puntosFamosos df columna spacee">
+<section class="puntosFamosos df columna spacee centerY marco">
 
     <p class="fuente">Podrás acceder a puntos de interés relevantes de cada destino</p>
 
-    <div class="df wrap contPois">
+    <div class="df wrap contPois centerX">
         <div v-for="poi in famosos" class="poi posRel df centerX centerY">
             <img :src="poi.imagen" alt="" class="w100 objCover">
             <h3 class="fuente posAb blanco">{{ poi.titulo }}</h3>
@@ -74,11 +74,11 @@ const activities = [
 
 </section>
 
-<section class="extras df columna">
+<section class="extras df columna spaceb">
 
-    <div class="itinerario">
+    <div class="itinerario bordeRojo df columna spacee marco">
         <p class="fuente">Y armar tu itinerario personalizado: </p>
-        <div class="df columna">
+        <div class="df columna contActividades">
             <div v-for="act in activities" class="actividad fondoBlanco df spaceb centerY">
                 <img :src="act.imagen" alt="" class="objCover">
                 <h3 class="fuente w100">{{ act.titulo }}</h3>
@@ -86,8 +86,8 @@ const activities = [
         </div>
     </div>
 
-    <div class="cta df">
-        <h4 class="fuente">Haz click en “Agregar destino” y comienza a planear tu próxima aventura!</h4>
+    <div class="cta marco df">
+        <h4 class="fuente">Haz click en <span class="fuente verdeOscuro">“Agregar destino”</span> y comienza a planear tu próxima aventura!</h4>
         <img src="/assets/imgs/character1.png" alt="" class="w100 objCover">
     </div>
 
@@ -112,8 +112,18 @@ main{
     width: 25%;
     height: 80vh;
 }
+#heroSection img{
+    border-radius: 20px;
+    filter: brightness(0.8);
+}
+h1{
+    font-size: 2.7em;
+}
 .intro{
     width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+    gap: 10px;
 }
 
 .puntosFamosos{
@@ -121,8 +131,11 @@ main{
 }
 .puntosFamosos p{
     font-size: 1.5em;
+    font-weight: 300;
+    width: 90%;
 }
 .contPois{
+    width: 95%;
     gap: 20px;
 }
 .poi{
@@ -137,12 +150,27 @@ main{
     border-radius: 20px;
 }
 
+.poi h3{
+    text-align: center;
+    font-size: 1.2em;
+}
+
 .extras{
     width: 25%;
 }
 
+.marco{
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
 .itinerario{
-    height: 50vh;
+    height: 45vh;
+    padding: 5%;
+}
+.itinerario p{
+    font-size: 1.2em;
+    font-weight: 300;
 }
 h3{
     font-weight: 400;
@@ -154,7 +182,7 @@ h3{
     border-radius: 8px;
     padding: 5px;
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     gap: 10px;
 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -173,18 +201,19 @@ h3{
 }
 
 .contActividades{
-    gap: 8px;
+    gap: 15px;
 }
 
 .cta{
-    height: 25vh;
+    height: 30vh;
+    padding: 5%;
 }
 h4{
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.3em;
 }
 .cta img{
-    height: 10vh;
+    height: 100%;
 }
 
 
