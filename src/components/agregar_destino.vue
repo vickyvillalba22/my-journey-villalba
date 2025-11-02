@@ -109,7 +109,7 @@ function guardarInfo(){
 
                 </div>
 
-                <div class="df columna corto">
+                <div class="df columna corto1">
 
                   <label for="horaLlegada" class="fuente">Fecha y horario de llegada</label>
                   <input v-model="horaLlegada" type="datetime-local" name="" id="horaLlegada" class="fuente">
@@ -127,7 +127,7 @@ function guardarInfo(){
 
                 </div>
 
-                <div class="df columna corto">
+                <div class="df columna corto1">
 
                   <label for="horaSalida" class="fuente">Fecha y horario de salida</label>
                   <input v-model="horaSalida" type="datetime-local" name="" id="horaSalida" class="fuente">
@@ -161,11 +161,12 @@ function guardarInfo(){
 
   dialog{
     position: fixed;
-    left: 40%;
-    top: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     width: 25%;
-    height: 60vh;
+    height: 65vh;
 
     border-radius: 20px;
   }
@@ -192,11 +193,22 @@ function guardarInfo(){
   }
 
   .corto{
-    width: 45%;
+    width: 40%;
+  }
+  .corto1{
+    width: 55%;
   }
 
   form{
-    height: 35vh;
+    height: 70%;
+  }
+
+  input{
+    height: 5vh;
+    border: 1px solid rgba(128, 128, 128, 0.527);
+    border-radius: 10px;
+    margin-top: 8px;
+    padding: 0px 8px;
   }
 
   label{

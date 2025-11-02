@@ -57,7 +57,6 @@ function deleteAct(index){
     border-radius: 30px;
     padding: 20px;
     height: 100%;
-    overflow: auto;
 }
 
 .cajaItinerario{
@@ -92,6 +91,7 @@ h3{
 
 .contActividades{
     gap: 8px;
+    overflow: auto;
 }
 
 button i{

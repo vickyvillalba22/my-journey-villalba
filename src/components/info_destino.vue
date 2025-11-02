@@ -32,9 +32,11 @@ const defImg = '/assets/imgs/city-default.jpg'
 
             <div class="info posAb df columna spaceb">
 
+            <div class="infoBase df columna spaceb">
                 <h2 class="fuente blanco">{{ destino.name }}</h2>
-                <h3 class="fuente blanco">{{ destino.state }}, {{ destino.country }}</h3>
+                <h3 class="fuente blanco acento">{{ destino.state }}, {{ destino.country }}</h3>
                 <p class="fuente blanco">{{ destino.description }}</p>
+            </div>
 
                 <UserItems />
 
@@ -49,7 +51,7 @@ const defImg = '/assets/imgs/city-default.jpg'
 <style scoped>
 
 section{
-    height: 70vh;
+    height: 80vh;
 }
 
 section img{
@@ -64,15 +66,24 @@ section img{
 
 .imagenDestino img{
     width: 100%;
-    filter: brightness(0.6);
+    filter: brightness(0.7);
 }
 .info{
     height: 90%;
     margin: 20px;
 }
 
+.infoBase{
+    height: 32vh;
+}
+
+section h2{
+    font-size: 2em;
+    font-weight: 500;
+}
+
 section h3{
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 500;
 }
 

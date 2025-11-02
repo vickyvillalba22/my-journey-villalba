@@ -21,6 +21,8 @@ const destino = ref(null)
 const panelVisible = ref(false)
 const panelInicioVis = ref(true)
 
+const puntoActivo = ref('Inicio')
+
 //array reactivo de ciudades
 const ciudades = ref([])
 
@@ -31,6 +33,7 @@ const puntos = ref([
       metodo: ()=>{
         panelVisible.value = false
         panelInicioVis.value = true
+        puntoActivo.value = "Inicio"
       },
       icono: "fi fi-rr-house-blank",
       colorFondo: "fondoVerdeOscuro" 
@@ -100,6 +103,7 @@ function setDestino(nuevoDestino, datosUser){
       console.log(ciudades.value);
 
       panelVisible.value = true
+      puntoActivo.value = destinoCompleto.name
 
       //Agregar punto en la timeline, siempre después de “Inicio” y antes de “Agregar destino”
       let posAgregar = puntos.value.findIndex(punto => punto.name === "Agregar destino");
@@ -110,6 +114,7 @@ function setDestino(nuevoDestino, datosUser){
           destino.value = destinoCompleto
           panelInicioVis.value = false
           panelVisible.value = true
+          puntoActivo.value = destinoCompleto.name
         },
         eliminar: ()=>{
 
@@ -151,6 +156,7 @@ function setDestino(nuevoDestino, datosUser){
 provide('destino', destino)
 provide('setDestino', setDestino)
 provide('puntos', puntos)
+provide('puntoActivo', puntoActivo)
 
 </script>
 

@@ -65,12 +65,12 @@ const hoverItem = ref(null)
 }
 
 .item.expandido{
-    border-radius: 10px;
+    border-radius: 15px;
     width: fit-content;
 }
 
 .item i{
-    padding: 10px;
+    padding: 9px 10px;
 }
 
 .item p{

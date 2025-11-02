@@ -3,6 +3,7 @@
 import { inject } from 'vue'
 
 const puntos = inject('puntos')
+const puntoActivo = inject('puntoActivo')
 
 
 </script>
@@ -33,7 +34,12 @@ const puntos = inject('puntos')
     <!--puntos-->
     <div id="contPuntos" class="df spaceb posAb">
 
-        <button v-for="(punto, i) in puntos" class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline" @click="punto.metodo" :key="i">
+        <button 
+        v-for="(punto, i) in puntos" 
+        class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline"
+        :class="{ active: puntoActivo === punto.name }" 
+        @click="punto.metodo" 
+        :key="i">
             
             <div class="puntito df centerY centerX" :class="punto.colorFondo">
                 <i :class="punto.icono" class="blanco df"></i>
@@ -77,6 +83,12 @@ const puntos = inject('puntos')
 }
 .cruz{
     font-size: 0.7em;
+}
+
+.punto.active .puntito {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #2CC295; 
+  transition: all 0.25s ease;
 }
 
 </style>
