@@ -1,16 +1,51 @@
 <script setup>
 
-import { inject } from 'vue'
+import { inject, ref, computed } from 'vue'
 
 const puntos = inject('puntos')
 const puntoActivo = inject('puntoActivo')
 
+//manejo de timeline en mobile
+const timelineMobVisible = ref(false)
+function toggleTimeline (){
+    timelineMobVisible.value = !timelineMobVisible.value
+}
+
+//manejo de inicio para mobile
+function inicio (){
+    const puntoInicio = puntos.value.find(punto => punto.name === 'Inicio')
+    if (puntoInicio) {
+    puntoInicio.metodo()
+    //cerrar timeline
+    timelineMobVisible.value = false
+    }
+}
+
+const botonesMobile = computed(() => {
+  return puntos.value.filter(punto => 
+    punto.name === 'Inicio' || punto.name === 'Agregar destino'
+  )
+})
 
 </script>
 
 <template>
 
-<div id="timeline" class="posRel df columna centerY spacea">
+<div class="invisible visibleM">
+    
+    <!--botones de la timeline-->
+    <button v-for="(punto, i) in botonesMobile" :key="i" @click="punto.metodo">
+        <i :class="punto.icono"></i>
+    </button>
+
+    <!--boton especial de mobile-->
+    <button @click="toggleTimeline">
+        <i :class="timelineMobVisible ? 'fi fi-rr-cross-small' : 'fi fi-rr-menu-burger'"></i>
+    </button>
+
+</div>
+
+<div id="timeline" class="posRel df columna centerY spacea invisibleM">
 
     <!--nombres-->
     <div class="w100 df spaceb">

@@ -61,6 +61,8 @@ const activities = [
 
 </section>
 
+<div class="derecho df spaceb">
+
 <section class="puntosFamosos df columna spacee centerY marco">
 
     <p class="fuente">Podrás acceder a puntos de interés relevantes de cada destino</p>
@@ -95,6 +97,8 @@ const activities = [
 
 </section>
 
+</div>
+
 </main>
 
 
@@ -126,8 +130,12 @@ h1{
     gap: 10px;
 }
 
+.derecho{
+    width: 70%;
+}
+
 .puntosFamosos{
-    width: 40%;
+    width: 60%;
 }
 .puntosFamosos p{
     font-size: 1.5em;
@@ -156,7 +164,7 @@ h1{
 }
 
 .extras{
-    width: 25%;
+    width: 35%;
 }
 
 .marco{
@@ -214,6 +222,76 @@ h4{
 }
 .cta img{
     height: 100%;
+}
+
+@media (max-width: 850px){
+    main{
+        flex-direction: column;
+    }
+    #heroSection{
+        width: 100%;
+        height: 15vh;
+    }
+    .intro{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+        margin: 5%;
+    }
+    #heroSection img{
+        filter: none;
+    }
+    .intro h1{
+        width: 60%;
+        color: black;
+        font-size: 2.3em;
+    }
+    .intro p{
+        font-size: 1em;
+        width: 40%;
+        color: black;
+    }
+    .derecho{
+        width: 100%;
+    }
+    .contPois{
+        overflow: auto;
+    }
+    .poi{
+        flex: 0 0 20vw; 
+        height: 20vh;
+    }
+    .puntosFamosos, .derecho{
+        height: 60vh;
+    }
+    .puntosFamosos{
+        gap: 20px;
+    }
+    .puntosFamosos p{
+        width: 80%;
+        margin-top: 8%;
+        font-size: 1.3em;
+    }
+    .itinerario{
+        height: 55%;
+    }
+    .actividad{
+        height: 7vh;
+    }
+    .cta{
+        height: 40%;
+    }
+    .cta img{
+        width: 40%;
+        height: 60%;
+        transform: translate(0, 50%);
+    }
+    h4{
+        font-weight: 500;
+        font-size: 1.2em;
+        margin: 5%;
+    }
 }
 
 

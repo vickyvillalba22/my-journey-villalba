@@ -225,4 +225,12 @@ function guardarInfo(){
     color: brown;
   }
 
+  @media (max-width: 850px){
+    dialog{    
+      width: 50%;
+      height: 65vh;
+    }
+
+  }
+
 </style>

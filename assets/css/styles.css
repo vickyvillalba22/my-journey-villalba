@@ -108,3 +108,21 @@
 .w100{
     width: 100%;
 }
+
+.invisible{
+    display: none;
+}
+.visible{
+    display: block;
+}
+
+@media (max-width: 500px){
+
+    .invisibleM{
+        display: none;
+    }
+    .visibleM{
+        display: block;
+    }
+
+}

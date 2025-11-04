@@ -184,4 +184,5 @@ provide('puntoActivo', puntoActivo)
   height: 100vh;
 }
 
+
 </style>
