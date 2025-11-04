@@ -131,4 +131,16 @@ i{
     font-size: 1em;
 }
 
+@media (max-width: 850px){
+    .poi, .card-back{
+        flex: 0 0 20vw; 
+        height: 25vh;
+    }
+}
+@media (max-width: 500px){
+    .poi, .card-back{
+        flex: 0 0 30vw; 
+        height: 100%;
+    }
+}
 </style>

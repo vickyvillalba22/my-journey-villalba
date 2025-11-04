@@ -92,10 +92,26 @@ h3{
 .contActividades{
     gap: 8px;
     overflow: auto;
+    height: 70vh;
 }
 
 button i{
     font-size: 1.5em;
+}
+
+@media (max-width: 850px){
+    .contActividades{
+        gap: 8px;
+        overflow: auto;
+        height: 45vh;
+    }
+}
+@media (max-width: 500px){
+    .contActividades{
+        gap: 8px;
+        overflow: auto;
+        height: 25vh;
+    }
 }
 
 </style>

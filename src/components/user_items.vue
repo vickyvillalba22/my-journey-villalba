@@ -78,4 +78,11 @@ const hoverItem = ref(null)
     padding-right: 10px;
 }
 
+@media  (max-width: 850px){
+    .contItems{
+        width: 40%;
+        height: 10vh;
+    }
+}
+
 </style>

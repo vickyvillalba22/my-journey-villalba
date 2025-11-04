@@ -230,7 +230,9 @@ h4{
     }
     #heroSection{
         width: 100%;
-        height: 15vh;
+        height: 20vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
     }
     .intro{
         flex-direction: row;
@@ -245,7 +247,7 @@ h4{
     .intro h1{
         width: 60%;
         color: black;
-        font-size: 2.3em;
+        font-size: 2.1em;
     }
     .intro p{
         font-size: 1em;

@@ -72,5 +72,21 @@ section h3{
     overflow: auto;
 }
 
+@media (max-width: 500px){
+    .pois{
+        height: 30vh;
+        justify-content: space-around;
+    }
+    .contPois{
+        gap: 20px;
+        flex-wrap: nowrap;
+        overflow: auto;
+    }
+    section h3{
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+}
+
 
 </style>

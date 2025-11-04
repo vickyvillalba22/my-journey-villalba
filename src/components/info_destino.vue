@@ -91,4 +91,19 @@ section p{
     font-size: 0.9em;
 }
 
+@media  (max-width: 850px) {
+    section{
+        height: 20vh;
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+    }
+    .infoBase{
+        width: 50%;
+        max-height: 15vh;
+        overflow: auto;
+    }
+}
+
 </style>

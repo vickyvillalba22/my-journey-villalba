@@ -20,7 +20,9 @@ const destino = inject('destino')
 
         </div>
 
-        <div class="df columna bloque2">
+        <div class="derecho df spaceb">
+
+            <div class="df columna bloque2">
 
             <Pois />
 
@@ -29,6 +31,8 @@ const destino = inject('destino')
         <div class="bloque3">
 
             <Itinerario />
+
+        </div>
 
         </div>
 
@@ -46,11 +50,44 @@ const destino = inject('destino')
 .bloque1{
     width: 25%;
 }
+
+.derecho{
+    width: 70%;
+}
+
 .bloque2{
-    width: 45%;
+    width: 60%;
 }
 .bloque3{
-    width: 20%;
+    width: 35%;
+}
+
+@media (max-width: 850px){
+    .bloque1{
+        width: 100%;
+    }
+    .panel{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .derecho{
+        width: 100%;
+        height: 55vh;
+    }
+}
+
+@media (max-width: 500px){
+    .derecho{
+        flex-direction: column;
+        gap: 1em;
+    }
+    .bloque2{
+        width: 100%;
+    }
+    .bloque3{
+        width: 100%;
+    }
 }
 
 
