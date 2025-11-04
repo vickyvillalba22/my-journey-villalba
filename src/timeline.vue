@@ -141,7 +141,11 @@ header{
     header{
         display: flex;
         width: 90%;
-
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        background-color: #F0F5F4;
+        padding: 3%;
     }
     header i{
         padding: 10px;
@@ -156,7 +160,7 @@ header{
         width: 40%;
         height: 100vh;
         position: fixed;
-        z-index: 1;        
+        z-index: 2;        
         left: 0;
 
         background: #F0F5F4;

@@ -294,5 +294,39 @@ h4{
     }
 }
 
+@media (max-width: 500px){
+    .intro{
+        flex-direction: column;
+    }
+    .intro h1, .intro p{
+        width: 100%;
+    }
+    .derecho{
+        flex-direction: column;
+    }
+    .puntosFamosos{
+        width: 100%;
+    }
+    .contPois{
+        width: 80%;
+        flex-wrap: nowrap;
+        margin-bottom: 10%;
+    }
+    .extras{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .cta{
+        display: flex;
+        align-items: center;
+        height: 30%;
+    }
+    .cta img{
+        width: 40%;
+        height: 100%;
+        transform: translate(0, 0);
+    }
+}
+
 
 </style>

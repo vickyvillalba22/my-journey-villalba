@@ -233,4 +233,11 @@ function guardarInfo(){
 
   }
 
+  @media (max-width: 850px){
+    dialog{    
+      width: 80%;
+      height: 60vh;
+    }
+  }
+
 </style>
