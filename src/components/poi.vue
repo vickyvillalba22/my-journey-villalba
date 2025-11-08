@@ -120,6 +120,9 @@ h4{
     width: 100%;
     justify-content: end;
 }
+.contBotones button{
+    margin-left: 5px;
+}
 
 button{
     border-radius: 15px;

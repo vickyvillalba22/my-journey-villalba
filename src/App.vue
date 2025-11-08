@@ -7,6 +7,7 @@ import PanelDestino from './panel_destino.vue'
 import ModalDestino from './components/agregar_destino.vue'
 
 import PanelInicio from './panel_inicio.vue'
+import PanelFinal from './panelFinal.vue'
 
 //loader
 import Loader from './components/loader.vue'
@@ -20,6 +21,7 @@ const destino = ref(null)
 //estado para saber qué panel esta visible
 const panelVisible = ref(false)
 const panelInicioVis = ref(true)
+const panelFinal = ref(false)
 
 const puntoActivo = ref('Inicio')
 
@@ -49,7 +51,12 @@ const puntos = ref([
     },
 
     { name: "Final",
-      metodo: ()=>{},
+      metodo: ()=>{
+        panelVisible.value = false
+        panelInicioVis.value = false
+        panelFinal.value = true
+        puntoActivo.value = "Final"
+      },
       icono: "fi fi-rr-house-blank",
       colorFondo: "fondoVerdeOscuro" 
     }
@@ -135,8 +142,9 @@ function setDestino(nuevoDestino, datosUser){
           if (destino.value && destino.value.name === destinoCompleto.name) {
             panelVisible.value = false
             destino.value = null
+            puntos.value[0].metodo()
+            
           }
-
 
         },
         icono: "fi fi-rr-map-marker-check",
@@ -157,6 +165,7 @@ provide('destino', destino)
 provide('setDestino', setDestino)
 provide('puntos', puntos)
 provide('puntoActivo', puntoActivo)
+provide('ciudades', ciudades)
 
 </script>
 
@@ -171,6 +180,8 @@ provide('puntoActivo', puntoActivo)
   <PanelInicio v-if="panelInicioVis" />
 
   <ModalDestino ref="modalDestinoRef" />
+
+  <PanelFinal v-if="panelFinal" />
 
   <Loader v-if="isLoading" />
 

@@ -95,7 +95,7 @@ function guardarInfo(){
 
             <div class="df columna">
               <label for="ciudad" class="fuente doble">Ciudad/pueblo</label>
-              <input v-model="ciudad" type="text" name="ciudad" id="ciudad" class="fuente">
+              <input v-model="ciudad" type="text" name="ciudad" id="ciudad" class="fuente" placeholder="Ej. Barcelona">
               
               <p v-if="errorCiudad" class="error fuente">{{ errorCiudad }}</p>
             </div>
@@ -105,7 +105,7 @@ function guardarInfo(){
                 <div class="df columna corto">
 
                   <label for="llegada" class="fuente">En qué llegas</label>
-                  <input v-model="llegada" type="text" name="" id="llegada" class="fuente">
+                  <input v-model="llegada" type="text" name="" id="llegada" class="fuente" placeholder="Ej. Avión">
 
                 </div>
 
@@ -123,7 +123,7 @@ function guardarInfo(){
                 <div class="df columna corto">
 
                   <label for="salida" class="fuente">En qué te vas</label>
-                  <input v-model="salida" type="text" name="" id="salida" class="fuente">
+                  <input v-model="salida" type="text" name="" id="salida" class="fuente" placeholder="Ej. Colectivo">
 
                 </div>
 
@@ -139,7 +139,7 @@ function guardarInfo(){
               <div class="df columna">
               
                 <label for="estadia" class="fuente">Donde te quedás</label>
-                <input v-model="estadia" type="text" name="" id="estadia" class="fuente">
+                <input v-model="estadia" type="text" name="" id="estadia" class="fuente" placeholder="Ej. Hotel Las Mañanas">
 
               </div>
 

@@ -39,7 +39,7 @@ const botonesMobile = computed(() => {
 </header>
 
 <!--desktop-->
-<div :class="timelineMobVisible ? 'visibleM' : 'invisibleM'" class="contLinea">
+<div :class="timelineMobVisible ? 'visibleM' : 'invisibleM'" class="contLinea df spaceb">
 
     <div id="timeline" class="df columna centerY posRel spacea">
 
@@ -84,14 +84,12 @@ const botonesMobile = computed(() => {
     </div>
     <!--cont linea y puntos-->
 
-    <!--
-    <div class="closeLinea">
-        <button v-if="timelineMobVisible"
-        @click="toggleTimeline">
-            <i class="fi fi-rr-cross-small"></i>
+    <!--botones eliminar-->
+    <div class="w100 df spaceb eliminar">
+        <button v-for="punto in puntos" @click="punto.eliminar" class="sinBorde">
+            <i v-if="punto.name!=='Inicio'&&punto.name!=='Final'&&punto.name!=='Agregar destino'" class="fi fi-rr-cross"></i>
         </button>
     </div>
-    -->
 
     </div>
 
@@ -103,6 +101,20 @@ const botonesMobile = computed(() => {
 
 header{
     display: none;
+}
+
+.contLinea{
+    height: 12vh;
+}
+#nombres{
+    margin-bottom: 25px;
+    font-size: 0.8em;
+}
+.eliminar{
+    margin-top: 25px;
+}
+.eliminar i{
+    font-size: 0.7em;
 }
 
 #timeline{
