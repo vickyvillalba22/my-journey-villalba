@@ -35,6 +35,7 @@ const puntos = ref([
       metodo: ()=>{
         panelVisible.value = false
         panelInicioVis.value = true
+        panelFinal.value = false
         puntoActivo.value = "Inicio"
       },
       icono: "fi fi-rr-house-blank",
@@ -84,6 +85,7 @@ function setDestino(nuevoDestino, datosUser){
     }
 
     panelInicioVis.value = false
+    panelFinal.value = false
     isLoading.value = true
 
     fetchCityData(nuevoDestino)
@@ -120,6 +122,7 @@ function setDestino(nuevoDestino, datosUser){
         metodo: ()=>{
           destino.value = destinoCompleto
           panelInicioVis.value = false
+          panelFinal.value = false
           panelVisible.value = true
           puntoActivo.value = destinoCompleto.name
         },

@@ -110,6 +110,9 @@ header{
     margin-bottom: 25px;
     font-size: 0.8em;
 }
+.nombre{
+    text-align: center;
+}
 .eliminar{
     margin-top: 25px;
 }
@@ -118,7 +121,7 @@ header{
 }
 
 #timeline{
-    height: 10vh;
+    height: 8vh;
     width: 90vw;
 }
 
