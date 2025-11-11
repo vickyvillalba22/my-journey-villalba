@@ -1,6 +1,6 @@
 <script setup>
 
-import { inject, ref, computed } from 'vue'
+import { inject, ref, computed, TransitionGroup } from 'vue'
 
 const puntos = inject('puntos')
 const puntoActivo = inject('puntoActivo')
@@ -48,7 +48,7 @@ const botonesMobile = computed(() => {
 
         <div v-for="(punto, i) in puntos" class="df">
 
-            <p class="fuente nombre" @click="punto.metodo">
+            <p class="fuente" @click="punto.metodo" :class="punto.name === 'Agregar destino' ? 'accion' : 'nombre'">
                 {{ punto.name }}
             </p>
 
@@ -65,18 +65,22 @@ const botonesMobile = computed(() => {
     <!--puntos-->
     <div id="contPuntos" class="df spaceb posAb">
 
+       <TransitionGroup name="point" tag="div" class="df spaceb w100"> 
+
         <button 
         v-for="(punto, i) in puntos" 
-        class="punto  fondoTransparente df columna centerY fuente sinBorde placaTimeline"
+        class="punto fondoTransparente df columna centerY fuente sinBorde placaTimeline"
         :class="{ active: puntoActivo === punto.name }" 
         @click="punto.metodo" 
-        :key="i">
+        :key="punto.name">
             
             <div class="puntito df centerY centerX" :class="punto.colorFondo">
                 <i :class="punto.icono" class="blanco df"></i>
             </div>
 
         </button>
+
+       </TransitionGroup>
 
     </div>
     <!--puntos-->
@@ -112,6 +116,14 @@ header{
 }
 .nombre{
     text-align: center;
+    cursor: pointer;
+}
+.accion{
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
 }
 .eliminar{
     margin-top: 25px;
@@ -138,6 +150,7 @@ header{
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    cursor: pointer;
 }
 #contPuntos{
     width: 100%;
@@ -150,6 +163,19 @@ header{
   transform: scale(1.2);
   box-shadow: 0 0 10px #2CC295; 
   transition: all 0.25s ease;
+}
+
+/*animacion*/
+.point-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.point-enter-active {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.point-enter-to {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 500px){
