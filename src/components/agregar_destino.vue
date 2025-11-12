@@ -48,13 +48,24 @@ function limpiarFormulario() {
 
 function guardarInfo(){
 
-//validacion
+  //validacion ciudad
   if(!ciudad.value.trim()){
     errorCiudad.value = 'La ciudad/pueblo es requerida'
     return
   }
 
   errorCiudad.value = ''
+
+  //validacion fechas
+  if (horaLlegada.value && horaSalida.value) {
+    const llegadaDate = new Date(horaLlegada.value)
+    const salidaDate = new Date(horaSalida.value)
+
+    if (salidaDate <= llegadaDate) {
+      errorCiudad.value = 'La fecha de salida debe ser posterior a la de llegada'
+      return
+    }
+  }
 
   const userData = {
     city: mayus(ciudad.value.trim()),
@@ -96,8 +107,6 @@ function guardarInfo(){
             <div class="df columna">
               <label for="ciudad" class="fuente doble">Ciudad/pueblo</label>
               <input v-model="ciudad" type="text" name="ciudad" id="ciudad" class="fuente" placeholder="Ej. Barcelona">
-              
-              <p v-if="errorCiudad" class="error fuente">{{ errorCiudad }}</p>
             </div>
 
               <div class="df spaceb">
@@ -144,6 +153,8 @@ function guardarInfo(){
               </div>
 
           </form>
+
+          <p v-if="errorCiudad" class="error fuente">{{ errorCiudad }}</p>
 
           <div class="w100 df centerX">
             <button @click="guardarInfo" class="fuente fitContent sinBorde fondoVerdeOscuro blanco">Confirmar</button>
@@ -222,6 +233,7 @@ function guardarInfo(){
   }
   .error{
     font-size: 0.8em;
+    margin: 5px 0px;
     color: brown;
   }
 
