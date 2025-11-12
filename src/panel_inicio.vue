@@ -101,8 +101,6 @@ const activities = [
 
 </main>
 
-
-
 </template>
 
 <style scoped>
@@ -299,6 +297,12 @@ h4{
 @media (max-width: 500px){
     .intro{
         flex-direction: column;
+        height: 20%;
+        width: 90%;
+    }
+    #heroSection{
+        height: 20vh;
+        justify-content: center;
     }
     .intro h1, .intro p{
         width: 100%;
@@ -310,7 +314,7 @@ h4{
         width: 100%;
     }
     .contPois{
-        width: 80%;
+        width: 100%;
         flex-wrap: nowrap;
         margin-bottom: 10%;
     }

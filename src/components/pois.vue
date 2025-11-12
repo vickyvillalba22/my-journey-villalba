@@ -74,11 +74,12 @@ section h3{
 
 @media (max-width: 500px){
     .pois{
-        height: 30vh;
+        height: 50vh;
         justify-content: space-around;
     }
     .contPois{
-        gap: 20px;
+        height: 30vh;
+        gap: 10px;
         flex-wrap: nowrap;
         overflow: auto;
     }

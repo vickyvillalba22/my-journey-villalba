@@ -22,19 +22,23 @@ const botonesMobile = computed(() => {
 <template>
 
 <!--mobile-->
-<header class="invisible spaceb">
-    
-    <!--botones de la timeline-->
-    <button v-for="(punto, i) in botonesMobile" :key="i" @click="punto.metodo" class="df sinBorde columna centerY">
-        <i :class="[punto.icono, punto.colorFondo]" class="df centerY blanco"></i>
-        <p class="fuente">{{ punto.name }}</p>
-    </button>
+<header class="invisible spaceb df centerY">
 
-    <!--boton especial de mobile-->
-    <button @click="toggleTimeline" class="df sinBorde columna centerY">
-        <i :class="timelineMobVisible ? 'fi fi-rr-cross-small' : 'fi fi-rr-road'" class="fondoVerdeOscuro df centerY blanco"></i>
-        <p class="fuente">Mi ruta</p>
-    </button>
+    <div class="df spaceb">
+    
+        <!--botones de la timeline-->
+        <button v-for="(punto, i) in botonesMobile" :key="i" @click="punto.metodo" class="df sinBorde columna centerY fondoTransparente">
+            <i :class="[punto.icono, punto.colorFondo]" class="df centerY blanco"></i>
+            <p class="fuente">{{ punto.name }}</p>
+        </button>
+
+        <!--boton especial de mobile-->
+        <button @click="toggleTimeline" class="df sinBorde columna centerY fondoTransparente">
+            <i :class="timelineMobVisible ? 'fi fi-rr-cross-small' : 'fi fi-rr-road'" class="fondoVerdeOscuro df centerY blanco"></i>
+            <p class="fuente">Mi ruta</p>
+        </button>
+
+    </div>
 
 </header>
 
@@ -65,7 +69,7 @@ const botonesMobile = computed(() => {
     <!--puntos-->
     <div id="contPuntos" class="df spaceb posAb">
 
-       <TransitionGroup name="point" tag="div" class="df spaceb w100"> 
+       <TransitionGroup name="point" tag="div" class="df spaceb w100 botonesTransition"> 
 
         <button 
         v-for="(punto, i) in puntos" 
@@ -105,6 +109,7 @@ const botonesMobile = computed(() => {
 
 header{
     display: none;
+    height: 12vh;
 }
 
 .contLinea{
@@ -181,12 +186,15 @@ header{
 @media (max-width: 500px){
     header{
         display: flex;
-        width: 90%;
+        justify-content: center;
+        width: 100%;
         position: fixed;
         top: 0;
         z-index: 1;
         background-color: #F0F5F4;
-        padding: 3%;
+    }
+    header div{
+        width: 80%;
     }
     header i{
         padding: 10px;
@@ -222,8 +230,10 @@ header{
 
     #nombres{
         flex-direction: column;
+        align-items: center;
         height: 100%;
-        width: 30%;
+        width: 60%;
+        margin-right: 15px;
     }
     #nombres div p{
         text-align: right;
@@ -239,6 +249,11 @@ header{
         flex-direction: column;
         height: 100%;
         width: 30%;
+
+    }
+    .botonesTransition{
+        flex-direction: column;
+        height: 100%;
 
     }
     #linea {

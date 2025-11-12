@@ -106,4 +106,14 @@ section p{
     }
 }
 
+@media (max-width: 500px){
+    section{
+        height: 30vh;
+    }
+    .infoBase{
+        max-height: 20vh;
+        overflow: auto;
+    }
+}
+
 </style>

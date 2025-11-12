@@ -233,10 +233,13 @@ function guardarInfo(){
 
   }
 
-  @media (max-width: 850px){
+  @media (max-width: 500px){
     dialog{    
-      width: 80%;
-      height: 60vh;
+      width: 80vw;
+      height: 65vh;
+    }
+    label{
+      font-size: 0.7em;
     }
   }
 

@@ -24,15 +24,15 @@ const destino = inject('destino')
 
             <div class="df columna bloque2">
 
-            <Pois />
+                <Pois />
 
-        </div>
+            </div>
 
-        <div class="bloque3">
+            <div class="bloque3">
 
-            <Itinerario />
+                <Itinerario />
 
-        </div>
+            </div>
 
         </div>
 
@@ -78,10 +78,15 @@ const destino = inject('destino')
 }
 
 @media (max-width: 500px){
+    .panel{
+        margin-top: 15vh;
+        gap: 20px;
+    }
     .derecho{
         flex-direction: column;
-        gap: 1em;
+        gap: 20px;
     }
+
     .bloque2{
         width: 100%;
     }
