@@ -84,4 +84,32 @@ button{
     height: 10vh;
 }
 
+@media (max-width: 850px){
+    section{
+        width: 60vw;
+        height: 60vh;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+    .viajera{
+        height: 100%;
+        transform: scale(2) translateY(-25%);
+    }
+}
+
+@media (max-width: 500px){
+    section{
+        width: 80vw;
+        margin-top: 30px;
+    }
+    h2{
+        font-size: 1em;
+    }
+    .viajera{
+        height: 100%;
+        transform: scale(2.5) translateY(-25%);
+    }
+}
+
 </style>

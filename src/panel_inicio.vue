@@ -228,8 +228,7 @@ h4{
     }
     #heroSection{
         width: 100%;
-        height: 20vh;
-        margin-top: 5vh;
+        height: 15vh;
         margin-bottom: 5vh;
     }
     .intro{
