@@ -256,6 +256,11 @@ header{
         height: 100%;
 
     }
+    .eliminar{
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
     #linea {
         width: 2px;
         height: 100%;
@@ -273,6 +278,12 @@ header{
         height: 100%;
         display: flex;
         align-items: first baseline;
+    }
+
+    /*animacion*/
+    .point-enter-from {
+        opacity: 0;
+        transform: translateY(40px);
     }
 }
 
